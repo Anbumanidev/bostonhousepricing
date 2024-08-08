@@ -14,14 +14,27 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # or any other version supported by your project
+          node-version: '14'
 
       - name: Install Render CLI
         run: npm install -g render-cli
 
+      - name: Verify Render CLI Installation
+        run: render --version
+
+      - name: Debug Environment Variables
+        run: env | sort
+
       - name: Authenticate Render CLI
-        run: render login --api-key ${{ secrets.RENDER_API_KEY }}
+        run: |
+          echo "Logging into Render"
+          render login --api-key ${{ secrets.RENDER_API_KEY }}
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
 
       - name: Deploy to Render
         run: render deploy --service-id ${{ secrets.RENDER_SERVICE_ID }} --branch main
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+
 
