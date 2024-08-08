@@ -30,10 +30,10 @@ jobs:
           
           # Render API key associated with provided user's email.
           # Api Key is available under your Render account settings.
-          heroku_api_key: ${{ secrets.RENDER_API_KEY }}
+          render_api_key: ${{ secrets.RENDER_API_KEY }}
           
           # Name of the Render application to which the build is to be sent.
-          heroku_app_name: ${{ secrets.RENDER_APP_NAME }}
+          render_app_name: ${{ secrets.RENDER_APP_NAME }}
 
           # (Optional, default: "./")
           # Dockerfile directory.
