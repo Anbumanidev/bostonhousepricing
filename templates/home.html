@@ -1,48 +1,106 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
 
-  
+        .navbar-brand {
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
 </head>
 
 <body>
- <div class="login">
-	<h1>Boston House Price Prediction is Hosted by ANBUMANI</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-    	  <input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-        <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-        <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-        <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-        <input type="text" name="RM" placeholder="RM" required="required" /><br>
-        <input type="text" name="Age" placeholder="Age" required="required" /><br>
-        <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-        <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-        <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-        <input type="text" name="B" placeholder="B" required="required" /><br>
-        <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Boston House Price Prediction</a>
+        </div>
+    </nav>
 
-       
+    <!-- Main Container -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card p-4">
+                    <h2 class="text-center mb-4">Predict House Prices</h2>
+                    <form action="{{ url_for('predict') }}" method="post">
+                        <input type="text" class="form-control" name="CRIM" placeholder="CRIM" required>
+                        <input type="text" class="form-control" name="ZN" placeholder="ZN" required>
+                        <input type="text" class="form-control" name="INDUS" placeholder="INDUS" required>
+                        <input type="text" class="form-control" name="CHAS" placeholder="CHAS" required>
+                        <input type="text" class="form-control" name="NOX" placeholder="NOX" required>
+                        <input type="text" class="form-control" name="RM" placeholder="RM" required>
+                        <input type="text" class="form-control" name="Age" placeholder="Age" required>
+                        <input type="text" class="form-control" name="DIS" placeholder="DIS" required>
+                        <input type="text" class="form-control" name="RAD" placeholder="RAD" required>
+                        <input type="text" class="form-control" name="TAX" placeholder="TAX" required>
+                        <input type="text" class="form-control" name="PTRATIO" placeholder="PTRATIO" required>
+                        <input type="text" class="form-control" name="B" placeholder="B" required>
+                        <input type="text" class="form-control" name="LSTAT" placeholder="LSTAT" required>
+                        <button type="submit" class="btn btn-primary btn-block">Predict</button>
+                    </form>
+                    <br>
+                    <div class="alert alert-info text-center" role="alert">
+                        {{ prediction_text }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+    <!-- Footer -->
+    <footer>
+        <p>Hosted by ANBUMANI</p>
+    </footer>
 
-   <br>
-   <br>
-  
-   
- </div>
- {{prediction_text}}
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
