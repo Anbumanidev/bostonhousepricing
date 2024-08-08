@@ -15,31 +15,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # Install Render CLI
+      - name: Install Render CLI
+        run: curl -fsSL https://render.com/install | bash
 
-### ⬇ IMPORTANT PART ⬇ ###
+      # Authenticate Render CLI
+      - name: Authenticate Render CLI
+        run: render login --api-key ${{ secrets.RENDER_API_KEY }}
 
-      - name: Build and Deploy to Render # Your custom step name
-        uses: render-examples/github-actions-deploy-render@v1 # GitHub action for Render deployment
-        with:
-          # Below you must provide variables for your Render service.
-
-          # The API key associated with your Render account.
-          # You should store your Render API key as a secret in GitHub.
-          api_key: ${{ secrets.RENDER_API_KEY }}
-          
-          # The ID of the Render service you want to deploy to.
-          # This is a required parameter and should be stored as a secret in GitHub.
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
-
-          # The path to the root directory of your project in the repository.
-          # If your project is in the root directory, leave it as "./".
-          root_dir: ./
-
-          # Optional: Specify a branch to deploy from.
-          # If not provided, the action will use the branch specified in your Render service settings.
-          branch: main
-
-          # Optional: Override the Render service name.
-          # service_name: my-render-service
-
-### ⬆ IMPORTANT PART ⬆ ###
+      # Deploy to Render
+      - name: Deploy to Render
+        run: render deploy --service-id ${{ secrets.RENDER_SERVICE_ID }} --branch main
