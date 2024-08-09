@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boston House Price Prediction Dashboard</title>
+    <title>Boston House Price Prediction</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Chart.js for interactive charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Custom CSS -->
     <style>
         body {
@@ -22,7 +20,7 @@
         }
 
         .navbar {
-            background-color: #343a40;
+            background-color: #ff6f61;
         }
 
         .navbar-brand {
@@ -32,50 +30,48 @@
         }
 
         .container {
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
         .card {
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: #ffffff;
-            margin-bottom: 20px;
+            background-color: #fff3e0;
         }
 
         .btn-primary {
-            background-color: #28a745;
+            background-color: #ff6f61;
             border: none;
             border-radius: 50px;
             padding: 12px 30px;
-            font-size: 18px;
+            font-size: 20px;
             transition: background-color 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: #218838;
+            background-color: #e65c54;
         }
 
         .form-control {
-            border-radius: 10px;
+            border-radius: 20px;
             margin-bottom: 15px;
-            padding: 10px;
+            padding: 15px;
             font-size: 16px;
         }
 
         .form-control:focus {
-            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
-            border-color: #28a745;
+            box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+            border-color: #ff6f61;
         }
 
         h2 {
-            color: #28a745;
-            margin-bottom: 30px;
+            color: #ff6f61;
         }
 
         .alert-info {
-            background-color: #e9ecef;
-            border: 1px solid #28a745;
-            color: #28a745;
+            background-color: #fff3e0;
+            border: 1px solid #ff6f61;
+            color: #ff6f61;
         }
 
         footer {
@@ -88,75 +84,20 @@
             margin: 0;
             font-size: 16px;
         }
-
-        .dashboard-title {
-            color: #343a40;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 300px;
-        }
-
-        .dashboard-stat {
-            padding: 20px;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .dashboard-stat h4 {
-            margin-bottom: 10px;
-            font-size: 24px;
-            color: #343a40;
-        }
-
-        .dashboard-stat p {
-            margin: 0;
-            font-size: 18px;
-            color: #28a745;
-        }
     </style>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark">
+    <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Boston House Price Dashboard</a>
+            <a class="navbar-brand" href="#">Boston House Price Prediction</a>
         </div>
     </nav>
 
     <!-- Main Container -->
     <div class="container">
-        <h2 class="dashboard-title text-center">Predict House Prices and Analyze Trends</h2>
-        
-        <!-- Statistics Section -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="dashboard-stat">
-                    <h4>Median Price</h4>
-                    <p>$450,000</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="dashboard-stat">
-                    <h4>Total Properties</h4>
-                    <p>12,345</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="dashboard-stat">
-                    <h4>Average Rooms</h4>
-                    <p>6.3</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Prediction Form Section -->
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="card p-5">
@@ -184,18 +125,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Chart Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card p-4">
-                    <h4 class="text-center">Price Distribution</h4>
-                    <div class="chart-container">
-                        <canvas id="priceChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -206,43 +135,6 @@
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
-    <!-- Chart.js Script -->
-    <script>
-        const ctx = document.getElementById('priceChart').getContext('2d');
-        const priceChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Average Price ($)',
-                    data: [430000, 450000, 460000, 470000, 480000, 490000, 500000, 510000, 520000, 530000, 540000, 550000],
-                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
-                    borderColor: '#28a745',
-                    borderWidth: 2,
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        ticks: {
-                            callback: function(value) {
-                                return '$' + value.toLocaleString();
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>
