@@ -37,6 +37,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             background-color: #fff3e0;
+            padding: 30px;
         }
 
         .btn-primary {
@@ -66,6 +67,7 @@
 
         h2 {
             color: #ff6f61;
+            font-weight: 500;
         }
 
         .alert-info {
@@ -92,7 +94,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Boston House Price Prediction</a>
+            <a class="navbar-brand" href="#"><i class="fas fa-home"></i> Boston House Price Prediction</a>
         </div>
     </nav>
 
@@ -100,22 +102,22 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <div class="card p-5">
+                <div class="card">
                     <h2 class="text-center mb-4">Predict House Prices</h2>
                     <form action="{{ url_for('predict') }}" method="post">
-                        <input type="text" class="form-control" name="CRIM" placeholder="CRIM" required>
-                        <input type="text" class="form-control" name="ZN" placeholder="ZN" required>
-                        <input type="text" class="form-control" name="INDUS" placeholder="INDUS" required>
-                        <input type="text" class="form-control" name="CHAS" placeholder="CHAS" required>
-                        <input type="text" class="form-control" name="NOX" placeholder="NOX" required>
-                        <input type="text" class="form-control" name="RM" placeholder="RM" required>
-                        <input type="text" class="form-control" name="Age" placeholder="Age" required>
-                        <input type="text" class="form-control" name="DIS" placeholder="DIS" required>
-                        <input type="text" class="form-control" name="RAD" placeholder="RAD" required>
-                        <input type="text" class="form-control" name="TAX" placeholder="TAX" required>
-                        <input type="text" class="form-control" name="PTRATIO" placeholder="PTRATIO" required>
-                        <input type="text" class="form-control" name="B" placeholder="B" required>
-                        <input type="text" class="form-control" name="LSTAT" placeholder="LSTAT" required>
+                        <input type="text" class="form-control" name="CRIM" placeholder="Per Capita Crime Rate (CRIM)" required>
+                        <input type="text" class="form-control" name="ZN" placeholder="Proportion of Residential Land (ZN)" required>
+                        <input type="text" class="form-control" name="INDUS" placeholder="Non-Retail Business Acres (INDUS)" required>
+                        <input type="text" class="form-control" name="CHAS" placeholder="Charles River Dummy Variable (CHAS)" required>
+                        <input type="text" class="form-control" name="NOX" placeholder="Nitric Oxide Concentration (NOX)" required>
+                        <input type="text" class="form-control" name="RM" placeholder="Average Number of Rooms (RM)" required>
+                        <input type="text" class="form-control" name="Age" placeholder="Proportion of Older Homes (Age)" required>
+                        <input type="text" class="form-control" name="DIS" placeholder="Weighted Distance to Jobs (DIS)" required>
+                        <input type="text" class="form-control" name="RAD" placeholder="Highway Accessibility Index (RAD)" required>
+                        <input type="text" class="form-control" name="TAX" placeholder="Property Tax Rate (TAX)" required>
+                        <input type="text" class="form-control" name="PTRATIO" placeholder="Pupil-Teacher Ratio (PTRATIO)" required>
+                        <input type="text" class="form-control" name="B" placeholder="Proportion of Black Residents (B)" required>
+                        <input type="text" class="form-control" name="LSTAT" placeholder="Lower-Status Population (%) (LSTAT)" required>
                         <button type="submit" class="btn btn-primary btn-block">Predict</button>
                     </form>
                     <br>
@@ -129,7 +131,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Hosted by ANBUMANI</p>
+        <p>Developed by ANBUMANI | © 2024</p>
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
