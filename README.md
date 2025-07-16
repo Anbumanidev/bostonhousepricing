@@ -1,73 +1,139 @@
+
 🏠 Boston House Pricing Prediction
-This project is an end-to-end implementation of a machine learning pipeline to predict house prices in Boston, based on various features. It demonstrates the complete workflow from data preprocessing and model building to deployment.
+End-to-end machine learning project to predict Boston house prices, built with Python, Flask, Docker, and deployed on Heroku.
+
+
 
 📌 Project Overview
-Goal: Build and deploy a regression model to predict the median value of owner-occupied homes in Boston.
+This project demonstrates a complete machine learning workflow:
 
-Tech stack: Python, Scikit-learn, Pandas, NumPy, Flask, Heroku.
+Data analysis and preprocessing
 
-Deployment: The final trained model is deployed as a web application so users can predict house prices by entering input features.
+Model training with Linear Regression
 
-🧰 Software and Tools Used
-Tool/Software	Purpose	Link
-GitHub	Version control, collaboration, and code hosting	GitHub
-Heroku	Deploy the web application to the cloud	Heroku
-Visual Studio Code	Source code editor	VSCode
-Git CLI	Command-line interface to interact with Git	Git CLI
-Conda	Create and manage isolated Python environments	Miniconda/Anaconda
+Model saving and serving with Flask
 
-⚙️ Setup Instructions
-Follow the steps below to set up the project on your local machine:
+Containerization with Docker
 
-Clone the repository
+CI/CD with GitHub Actions
+
+Deployment to Heroku
+
+Dataset used: BostonHousing.csv (included in the repository).
+
+🧰 Technologies & Tools
+Tool	Purpose
+Python 3.7	Programming language
+Scikit-learn	Machine learning modeling
+Pandas & NumPy	Data manipulation and analysis
+Flask	Web application framework
+Docker	Containerization and portability
+GitHub Actions	CI/CD automation
+Heroku	Cloud deployment
+VS Code	Source code editor
+Git CLI	Version control
+
+⚙️ Project Structure
+bash
+Copy
+Edit
+.
+├── .github/workflows/              # GitHub Actions workflows
+├── templates/                      # HTML templates for Flask
+│   └── home.html
+├── BostonHousing.csv               # Dataset
+├── Dockerfile                      # Docker configuration
+├── LICENSE                         # Project license (Apache 2.0)
+├── Linear Regression ML Implementaton.ipynb  # Jupyter notebook with EDA & modeling
+├── Procfile                        # For Heroku deployment
+├── README.md                       # Project documentation
+├── app.py                          # Flask application
+├── regmodel.pkl                    # Saved regression model
+├── scaling.pkl                     # Saved scaler for preprocessing
+├── requirements.txt                # Python dependencies
+└── .gitignore                      # Files/folders to be ignored by git
+🚀 Setup & Installation
+Clone the repo:
 
 bash
 Copy
 Edit
-git clone <your-repo-url>
-cd <your-repo-directory>
-Create a new conda environment
+git clone https://github.com/Anbumanidev/boston-house-price-prediction.git
+cd boston-house-price-prediction
+Create and activate environment:
 
 bash
 Copy
 Edit
 conda create -p venv python=3.7 -y
-Activate the environment
-
-bash
-Copy
-Edit
 conda activate ./venv
-Install required dependencies
+Install dependencies:
 
 bash
 Copy
 Edit
 pip install -r requirements.txt
-🚀 Project Steps
-✅ Data collection and exploration
-✅ Data preprocessing (handling missing values, feature scaling, etc.)
-✅ Model selection and training (using regression algorithms)
-✅ Model evaluation (R² score, RMSE, etc.)
-✅ Saving the trained model using pickle
-✅ Building a Flask web application
-✅ Deploying the app on Heroku
-
-📂 Project Structure
-graphql
+🧪 Run Locally
+bash
 Copy
 Edit
-.
-├── static/                # Static files (CSS, images)
-├── templates/             # HTML templates for Flask
-├── app.py                 # Main Flask application
-├── notebook/              # Jupyter notebooks for exploration & EDA
-├── requirements.txt       # Python dependencies
-├── venv/                  # Conda virtual environment
-├── saved_models/          # Folder to store the trained model
-└── README.md              # Project documentation
+python app.py
+Then, open your browser and navigate to:
+
+cpp
+Copy
+Edit
+http://127.0.0.1:5000/
+🐳 Run with Docker
+Build the Docker image:
+
+bash
+Copy
+Edit
+docker build -t boston-house-app .
+Run the container:
+
+bash
+Copy
+Edit
+docker run -p 5000:5000 boston-house-app
 🌐 Deployment
-The trained model is deployed on Heroku, allowing users to access the prediction tool via a web browser.
+The project is configured to deploy on Heroku using:
+
+Procfile
+
+Docker (optional)
+
+GitHub Actions for CI/CD
+
+✅ Features
+Linear Regression model trained to predict Boston house prices
+
+Web interface built with Flask to take user inputs
+
+Containerized using Docker for easy deployment
+
+Automated CI/CD workflow with GitHub Actions
+
+Live deployment to Heroku
+
+📊 Model Details
+Algorithm: Linear Regression
+
+Libraries: scikit-learn, pandas, numpy
+
+Saved as: regmodel.pkl
+
+Scaler saved as: scaling.pkl
+
+📄 License
+This project is licensed under the Apache-2.0 License – see the LICENSE file for details.
 
 ✍️ Author
-Your Name – GitHub
+Anbumanidev
+
+GitHub
+
+⭐️ Contribute
+Contributions, issues, and feature requests are welcome!
+Feel free to fork this repository and submit a pull request.
